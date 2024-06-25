@@ -1,0 +1,230 @@
+{% extends "demo/base.html" %}
+
+{%block content %}
+<body>
+
+
+    <style>
+        
+    .footer{
+    padding: 50px 0;
+    background-color: #000000;
+    color: white;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+}
+        :root {
+            --colorTextos: #49454567;
+        }
+        
+        
+        *,
+        ::before,
+        ::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+    
+        
+        form{
+            background: #fff;
+            padding: 40px 0;
+            box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        
+        .form{
+            width: 100%;
+            margin: auto;
+        }
+        
+        form .grupo{
+            position: relative;
+            margin: 45px ;
+        }
+        
+        input{
+            background: none;
+            color: #c6c6c6;
+            font-size: 18px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid var(--colorTextos);
+        }
+        
+        
+        
+        input:focus{ 
+            outline: none;
+            color: #5e5d5d;
+        }
+        
+        label{
+            color: var(--colorTextos);
+            font-size: 16px;
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            transition: 0.5s ease all;
+            pointer-events: none;
+        }
+        
+        input:focus~label,
+        input:valid~label{
+            top: -14px;
+            font-size: 12px;
+            color: black;
+        }
+        
+        .barra{
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+        
+        .barra::before{
+            content: "";
+            height: 2px;
+            width: 0%;
+            bottom: 0;
+            position: absolute;
+            background: linear-gradient(to right, #dad315, #eeb925);
+            transition: 0.3s ease width;
+            left: 0;
+        }
+        
+        input:focus~.barra::before{
+            width: 100%;
+        }
+        
+        .warnings{
+            width: 200px;
+            text-align: center;
+            margin: auto;
+            color: rgb(32, 13, 200);
+            font-size: 25px;
+            padding-top: 20px;
+        }
+        .alerta{
+            width: 200px;
+            text-align: center;
+            margin: auto;
+            color: rgb(215, 127, 26);
+            font-size: 25px;
+            padding-top: 20px;
+        }
+
+
+        button{
+            margin-left: 45%;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:991px){
+            form{
+                width: 100%;
+            }
+        }
+        .form-control{ 
+            margin-left: 4%;
+            padding: 4%;       
+            width: 92%;
+            height: 50px;
+
+        }
+        
+    </style>
+
+    <header class="header">
+            
+            <div class="header-content container">
+                <div class="header-txt">
+                    <br><br><br><br><br>
+                    <h1><br><span>Bienvenidos a ZONEAT</span> <br> Haz que más comensales prueben tus platos!</h1>
+                    <p>
+                        ¿Quieres ser parte de una comunidad de restaurantes apasionados por la buena comida? 
+                        En ZONEAT, te ayudamos a conectar con comensales que buscan experiencias únicas y personalizadas. 
+                        Comparte tu menú, fotos y pasión por la cocina con miles de usuarios y descubre cómo ZONEAT 
+                        puede impulsar tu negocio. 
+                        ¡Regístrate ahora y únete a nuestra comunidad!
+                        Más abajo puedes llenar el 
+                        formulario y registrarte.
+                    </p>
+                </div>
+                <div class="header-img">
+                    <img src="imgages/pic03.jpg"  style="width: 450px" alt="icono-formulario">
+                </div>
+            </div>
+
+    </header>
+
+
+    <!-- Formulario para contactar -->
+
+    <header class="container1">
+        <div class="container1-content container">
+            <div class="container1-txt">
+
+                <form action="" method="POST" id="form">
+                    <div class="form">
+                        <h1 style="padding: 4%;" >R E G I S T R A T E </h1>
+                        <div class="grupo">
+                            <input type="text" placeholder="Nombre" id="name" ><span class="barra"></span>
+                            <label for=""></label>
+                        </div>
+                        <div class="grupo">
+                            <input type="apell" placeholder="Apellido" id="apellido" ><span class="barra"></span>
+                            <label for=""></label>
+                        </div>
+                        <div class="grupo">
+                            <input type="ciu" placeholder="Ciudad" id="ciudad" ><span class="barra"></span>
+                            <label for=""></label>
+                        </div>
+                        <div class="grupo">
+                            <input type="fono" placeholder="Telefono" id="telefono" ><span class="barra"></span>
+                            <label for=""></label>
+                        </div>                
+                        <div class="grupo">
+                        <i class='bx bxs-user-circle' ></i>
+                        <input type="local" placeholder="Local" name="" id="local" ><span class="barra"></span>
+                        <label for=""></label>
+                    </div>
+                    <div class="grupo">
+                        <i class='bx bx-envelope' ></i>
+                        <input type="email" placeholder="Correo electronico" name="" id="email" ><span class="barra"></span>
+                        <label for=""></label>
+                    </div>
+                    <div class="grupo">
+                        <i class='bx bx-lock-alt' ></i>
+                        <input type="password" placeholder="Contraseña" name="" id="password" ><span class="barra"></span>
+                        <label for=""></label>
+                    </div>    
+                    <button class="btn-1"> <a type="submit">ENVIAR</a></button>                
+                        <p class="warnings" id="warnings"></p>                  
+                        <p id="demo"></p>
+                    <button class="btn-1"><a href="file:///Users/jocelyn/Documents/transbank/transbank-integration-main/front-end-back-end/portal-web/carro-compras.html" onclick='document.getElementById("demo"), alert("Puedes ir a pagar!")= ""' href="file:///Users/jocelyn/Documents/transbank/transbank-integration-main/front-end-back-end/portal-web/carro-compras.html" type="submit">PAGAR</a></button>
+
+
+            <form class="was-validated" style="padding: 1%;" >
+                <div class="mb-3">
+                    <h1 style="padding: 4%;" >E S C R I B E N O S </h1>
+                    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Por favor, escribe tu mensaje." required></textarea>
+                    <!-- esto es para java en el boton-->
+                    <p id="demo"></p>
+                    <button class="btn-1"> <a type="submit" onclick='document.getElementById("demo"), alert("Envío exitoso!")= ""'>ENVIAR</a></button>         
+                </div>
+            </form>
+    </header>
+
+
+
+
+{%endblock%}

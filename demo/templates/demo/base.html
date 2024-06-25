@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>BOREAL Tenemos la música que buscas</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href={% static "/css/main.css" %} />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+					<img src="{% static 'images/logoempresa.png' %}" alt="" style="height: 400px;">
+					
+
+					<!-- Logo -->
+				
+						<h1><a href="index.html" id="logo">LIVE MUSIC <em>Tenemos la música que buscas</em></a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li {%if clase == 'inicio'%}
+                                class="current" {%endif%}><a href="/">Inicio</a></li>
+								<li {%if clase == 'galeria'%}
+                                class="current" {%endif%}><a href="productos">Productos</a></li>
+								<li><a href="right-sidebar.html">Contactanos</a></li>
+								<li><a href="registro">Registrate</a></li>
+								<li><a href="no-sidebar.html">Comprar</a></li>
+								<li>
+									{% if user.is_authenticated %}
+									
+									<a href="#">{{user.username}}</a>
+									<ul>
+										<form id="logoutForm" action="accounts/logout/" method="post" class="navbar-right">
+											{% csrf_token %}
+									        <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+											</ul>
+										</form>
+
+									
+									{% else %}
+									<li class="nav-item">
+										<a href="{% url 'login'%}">Login</a>
+									  </li>
+									{% endif %}
+								</li>
+							</ul>
+						</nav>
+
+				</div>
+                {% block content %}{% endblock %}
+				   
+				
+			       <!-- FOOTER -->
+<!-- Remove the container if you want to extend the Footer to full width. -->
+
+
+    <!-- Footer -->
+	<footer id="footer-inicio" class="footer">
+
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Contactos</h3>
+                <ul>
+                    <li><a href="#">+56 9 5451 2548</a></li>
+                    <li><a href="#">+56 2 5478 5545</a></li>
+
+                    
+                </ul>
+            </div>
+
+            <div class="link">
+                <h3>Correo</h3>
+                <ul>
+                    <li><a href="#">contacto@zonear.cl</a></li>
+                </ul>
+            </div>
+
+            <div class="link">
+                <h3>Ubicación</h3>
+                <ul>
+                    <li><a href="#">Dr. Manuel Barros Borgoño 71 OF 1306, 
+                                    <br>7500593 Providencia, Región Metropolitana</a></li>
+            </div>
+        </div>
+
+    </footer>
+
+
+					<!-- Icons 
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon brands fa-google-plus-g"><span class="label">Google+</span></a></li>
+						</ul>
+                     -->
+
+
+			
+
+	
+
+
+	</body>
+</html>
