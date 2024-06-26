@@ -24,12 +24,15 @@
 						<nav id="nav">
 							<ul>
 								<li {%if clase == 'inicio'%}
-                                class="current" {%endif%}><a href="/">Inicio</a></li>
-								<li {%if clase == 'galeria'%}
-                                class="current" {%endif%}><a href="productos">Productos</a></li>
-								<li><a href="right-sidebar.html">Contactanos</a></li>
-								<li><a href="registro">Registrate</a></li>
-								<li><a href="no-sidebar.html">Comprar</a></li>
+                                	class="current" {%endif%}><a href="/">Inicio</a></li>
+								<li {%if clase == 'productos'%}
+                                	class="current" {%endif%}><a href="productos">Productos</a></li>
+								<li {%if clase == 'contactanos'%}
+									class="current" {%endif%}><a href="right-sidebar.html">Contactanos</a></li>
+								<li {%if clase == 'registro'%}
+									class="current" {%endif%}><a href="registro">Registrate</a></li>
+								<li {%if clase == 'no-sidebar'%}
+									class="current" {%endif%}><a href="no-sidebar.html">Comprar</a></li>
 								<li>
 									{% if user.is_authenticated %}
 									
@@ -37,13 +40,15 @@
 									<ul>
 										<form id="logoutForm" action="accounts/logout/" method="post" class="navbar-right">
 											{% csrf_token %}
-									        <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+									        <li {%if clase == 'login'%}
+											class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
 											</ul>
 										</form>
 
 									
 									{% else %}
-									<li class="nav-item">
+									<li {%if clase == 'login'%}
+									class="current" {%endif%} class="nav-item">
 										<a href="{% url 'login'%}">Login</a>
 									  </li>
 									{% endif %}
