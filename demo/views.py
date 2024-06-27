@@ -39,10 +39,11 @@ def listadoSQL(request):
     context={"demo":demo}
     return render(request, 'demo/listadoSQL.html', context)
 
+
+
 def crud(request):
-    alumnos=Alumno.objects.all()
-    context={'alumnos':alumnos}
-    return render(request, 'alumnos/alumnos_list.html', context)
+    context={"clase": "crud"}
+    return render(request, 'demo/alumnos_list.html', context)
 
 def alumnosAdd(request):
     if request.method != "POST":

@@ -3,7 +3,7 @@
 
 <html>
 	<head>
-		<title>BOREAL Tenemos la música que buscas</title>
+		<title>LIVE music</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href={% static "/css/main.css" %} />
@@ -46,11 +46,10 @@
 									<form id="logoutForm" action="accounts/logout/" method="post" class="navbar-right">
 										{% csrf_token %}
 										<li {%if clase == 'login'%}
-										class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
-										</ul>
+										class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>			
+										<a href="crud"> Mis compras</a>	
+									</ul>		
 									</form>
-
-								
 								{% else %}
 								<li {%if clase == 'login'%}
 								class="current" {%endif%} class="nav-item">
@@ -137,7 +136,7 @@
             <div class="link">
                 <h3>Correo</h3>
                 <ul>
-                    <li><a href="#">contacto@zonear.cl</a></li>
+                    <li><a href="#">livemusic@gmail.cl</a></li>
                 </ul>
             </div>
 
