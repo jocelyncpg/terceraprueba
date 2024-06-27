@@ -26,6 +26,10 @@ def cassette(request):
     context={}
     return render(request, 'demo/cassette.html', context)
 
+def cd(request):
+    context={}
+    return render(request, 'demo/cd.html', context)
+
 # ingresar
 
 def listadoSQL(request):

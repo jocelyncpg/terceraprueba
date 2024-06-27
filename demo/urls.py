@@ -6,7 +6,8 @@ urlpatterns = [
     path('vinilo', views.vinilo, name='vinilo'),
     path('registro', views.registro, name='registro'),
     path('contactanos', views.contactanos, name='contactanos'),
-    path('cassette', views.cassette, name='cassette'),    
+    path('cassette', views.cassette, name='cassette'),   
+    path('cd', views.cd, name='cd'),        
     # Ingresar
     path('listadoSQL', views.listadoSQL, name='listadoSQL'),
     path('crud/', views.crud, name='crud'),
