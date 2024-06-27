@@ -12,3 +12,11 @@ def productos(request):
 def registro(request):
     context={"clase": "registro"}
     return render(request, 'demo/registro.html', context)
+
+def login(request):
+    context={}
+    return render(request, 'accounts/login.html', context)
+
+def contactanos(request):
+    context={}
+    return render(request, 'demo/contactanos.html', context)

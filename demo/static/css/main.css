@@ -1608,6 +1608,7 @@ input, select, textarea {
 	input[type="button"],
 	input[type="submit"],
 	input[type="reset"],
+	input[type="btn-1"],
 	button,
 	.button {
 		-webkit-appearance: none;
@@ -2175,7 +2176,7 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background: #CCE8F4 url("../../images/pic01.jpg");
+		background: #fd6f6f url("../../images/pic01.jpg");
 		background-position: center center;
 		background-size: auto 100%;
 		background-repeat: no-repeat;

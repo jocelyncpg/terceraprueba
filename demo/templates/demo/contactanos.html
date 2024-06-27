@@ -106,7 +106,7 @@
             width: 200px;
             text-align: center;
             margin: auto;
-            color: red;
+            color: rgb(32, 13, 200);
             font-size: 25px;
             padding-top: 20px;
         }
@@ -145,58 +145,37 @@
                     <section id="banner">
                         <header>
                             <h2>Bienvenidos a LIVE music</h2>
-                            <p> ¿Quieres ser parte de una comunidad de apasionados por la buena música?         
-                                ¡Regístrate ahora y únete!</p>
+                            <p> Escribenos y te contactaremos a la brevedad</p>
                         </header>
                     </section>
 
-
-    <!-- Formulario para contactar -->
-
-    <header class="container1">
-        <div class="container1-content container">
-            <div class="container1-txt">
-
-                <form action="" method="POST" id="form">
-                    <div class="form">
-                        <h1 style="padding: 4%;" >R E G I S T R A T E </h1>
-                        <div class="grupo">
-                            <input type="text" placeholder="Nombre" id="name" ><span class="barra"></span>
-                            <label for=""></label>
-                        </div>
-                        <div class="grupo">
-                            <input type="apell" placeholder="Apellido" id="apellido" ><span class="barra"></span>
-                            <label for=""></label>
-                        </div>
-                        <div class="grupo">
-                            <input type="ciu" placeholder="Ciudad" id="ciudad" ><span class="barra"></span>
-                            <label for=""></label>
-                        </div>
-                        <div class="grupo">
-                            <input type="fono" placeholder="Telefono" id="telefono" ><span class="barra"></span>
-                            <label for=""></label>
-                        </div>                
-                        <div class="grupo">
-                        <i class='bx bxs-user-circle' ></i>
-                        <input type="local" placeholder="Local" name="" id="local" ><span class="barra"></span>
-                        <label for=""></label>
-                    </div>
-                    <div class="grupo">
-                        <i class='bx bx-envelope' ></i>
-                        <input type="email" placeholder="Correo electronico" name="" id="email" ><span class="barra"></span>
-                        <label for=""></label>
-                    </div>
-                    <div class="grupo">
-                        <i class='bx bx-lock-alt' ></i>
-                        <input type="password" placeholder="Contraseña" name="" id="password" ><span class="barra"></span>
-                        <label for=""></label>
-                    </div>                   
-                        <ul class="actions">
-                            <p id="demo"></p>
-                            <button class="button" type="submit">ENVIAR</a></button>
-                            <p class="warnings" id="warnings"></p> 
-                        </ul>   
-
+                    <header class="container1">
+                        <div class="container1-content container">
+                            <div class="container1-txt">
+                
+                                <form action="" method="POST" id="form">
+                                    <div class="form">
+                                        <h1 style="padding: 4%;" >E S C R I B E N O S </h1>
+                                        <div class="grupo">
+                                            <input type="text" placeholder="Nombre" id="name" ><span class="barra"></span>
+                                            <label for=""></label>
+                                        </div>
+                                    <div class="grupo">
+                                        <i class='bx bx-envelope' ></i>
+                                        <input type="email" placeholder="Correo electronico" name="" id="email" ><span class="barra"></span>
+                                        <label for=""></label>
+                                    </div>
+            <form class="was-validated" style="padding: 1%;" >
+                <div class="mb-3">
+                    <h1 style="padding: 4%;" > </h1>
+                    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Por favor, escribe tu mensaje." required></textarea>
+                    <!-- esto es para java en el boton-->  
+                    <ul class="actions">
+                        <p id="demo"></p>
+                        <button class="button"type="submit" onclick='document.getElementById("demo"), alert("Envío exitoso!")= ""'>ENVIAR</a></button>
+                    </ul>     
+                </div>
+            </form>
     </header>
     <script src="static/js/empresa.js"></script>
 {%endblock%}
