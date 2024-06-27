@@ -21,43 +21,88 @@
 						<h1><a href="index.html" id="logo">LIVE MUSIC <em>Tenemos la música que buscas</em></a></h1>
 
 					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li {%if clase == 'inicio'%}
-                                	class="current" {%endif%}><a href="/">Inicio</a></li>
-								<li {%if clase == 'productos'%}
-                                	class="current" {%endif%}><a href="productos">Productos</a></li>
-								<li {%if clase == 'contactanos'%}
-									class="current" {%endif%}><a href="contactanos">Contactanos</a></li>
-								<li {%if clase == 'registro'%}
-									class="current" {%endif%}><a href="registro">Registrate</a></li>
-								<li {%if clase == 'no-sidebar'%}
-									class="current" {%endif%}><a href="no-sidebar.html">Comprar</a></li>
+					<nav id="nav">
+						<ul>
+							<li {%if clase == 'inicio'%}
+								class="current" {%endif%}><a href="/">Inicio</a></li>
 								<li>
-									{% if user.is_authenticated %}
-									
-									<a href="#">{{user.username}}</a>
+									<a href="#">Productos</a>
 									<ul>
-										<form id="logoutForm" action="accounts/logout/" method="post" class="navbar-right">
-											{% csrf_token %}
-									        <li {%if clase == 'login'%}
-											class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
-											</ul>
-										</form>
-
-									
-									{% else %}
-									<li {%if clase == 'login'%}
-									class="current" {%endif%} class="nav-item">
-										<a href="{% url 'login'%}">Login</a>
-									  </li>
-									{% endif %}
+										<li><a href="vinilo">Vinilos</a></li>
+										<li><a href="cd">CD</a></li>
+										<li><a href="cassette">Cassette</a></li>
+										<li><a href="#">Otro</a></li>
+									</ul>
 								</li>
-							</ul>
-						</nav>
+							<li {%if clase == 'contactanos'%}
+								class="current" {%endif%}><a href="contactanos">Contactanos</a></li>
+							<li {%if clase == 'registro'%}
+								class="current" {%endif%}><a href="registro">Registrate</a></li>
+							<li>
+								{% if user.is_authenticated %}
+								
+								<a href="#">{{user.username}}</a>
+								<ul>
+									<form id="logoutForm" action="accounts/logout/" method="post" class="navbar-right">
+										{% csrf_token %}
+										<li {%if clase == 'login'%}
+										class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+										</ul>
+									</form>
 
-				</div>
-                {% block content %}{% endblock %}
+								
+								{% else %}
+								<li {%if clase == 'login'%}
+								class="current" {%endif%} class="nav-item">
+									<a href="{% url 'login'%}">Login</a>
+
+								  </li>
+								{% endif %}
+							</li>		
+							<li {%if clase == 'comprar'%}
+								class="current" {%endif%}><a href="comprar"><img src="{% static 'images/car.jpeg' %}" id="img-carrito" alt="" style="align-content: center;" width="25" height="25"></a>								
+								<ul>
+									<li>
+										<a href="#">Mi carrito</a>
+										<input type="checkbox" id="menu">
+										<div>
+											<ul>
+												<li class="submenu">
+													<div id="carrito">
+														<table id="lista-carrito">
+															<thead>
+																<tr>
+																	<th>Imagen</th>
+																	<th>Nombre</th>
+																	<th>Precio</th>
+																	<th></th>
+																</tr>
+															</thead>
+															<tbody></tbody>
+														</table>
+														<a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<a href="productos">Productos</a>
+										<ul>
+											<li><a href="#">Vinilos</a></li>
+											<li><a href="#">CD</a></li>
+											<li><a href="#">Cassette</a></li>
+											<li><a href="#">Otro</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+					</nav>
+
+			</div>
+			{% block content %}{% endblock %}
 				   
 				
 			       <!-- FOOTER -->
