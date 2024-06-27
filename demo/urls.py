@@ -3,9 +3,10 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('productos', views.productos, name='productos'),
+    path('vinilo', views.vinilo, name='vinilo'),
     path('registro', views.registro, name='registro'),
     path('contactanos', views.contactanos, name='contactanos'),
+    path('cassette', views.cassette, name='cassette'),    
     # Ingresar
     path('listadoSQL', views.listadoSQL, name='listadoSQL'),
     path('crud/', views.crud, name='crud'),

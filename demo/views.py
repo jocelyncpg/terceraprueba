@@ -6,9 +6,9 @@ def index(request):
     context={"clase": "inicio"}
     return render(request, 'demo/index.html', context)
 
-def productos(request):
-    context={"clase": "productos"}
-    return render(request, 'demo/productos.html', context)
+def vinilo(request):
+    context={"clase": "vinilo"}
+    return render(request, 'demo/vinilo.html', context)
 
 def registro(request):
     context={"clase": "registro"}
@@ -21,6 +21,10 @@ def login(request):
 def contactanos(request):
     context={}
     return render(request, 'demo/contactanos.html', context)
+
+def cassette(request):
+    context={}
+    return render(request, 'demo/cassette.html', context)
 
 # ingresar
 
