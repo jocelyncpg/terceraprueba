@@ -30,6 +30,10 @@ def cd(request):
     context={}
     return render(request, 'demo/cd.html', context)
 
+def comprar(request):
+    context={}
+    return render(request, 'demo/comprar.html', context)
+
 # ingresar
 
 def listadoSQL(request):
