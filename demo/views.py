@@ -51,20 +51,12 @@ def crud(request):
 
 def alumnosAdd(request):
     if request.method != "POST":
-        generos = Genero.objects.all()
-        context = {"generos": generos}
-        return render(request, 'alumnos/alumnos_add.html', context)
+        context = {}
+        return render(request, 'demo/alumnos_add.html', context)
     else:
         rut = request.POST["rut"]
         nombre = request.POST["nombre"]
-        apaterno = request.POST["apaterno"]
-        amaterno = request.POST["amaterno"]
-        fechaNac = request.POST["fechaNac"]
-        genero = request.POST["genero"]
-        telefono = request.POST["telefono"]
-        email = request.POST["email"]
-        direccion = request.POST["direccion"]
-        activo = "1"
+
 
         objGenero = Genero.objects.get(id_genero=genero)
         obj = Alumno.objects.create(
