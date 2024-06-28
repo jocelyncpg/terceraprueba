@@ -35,15 +35,15 @@
 									</ul>
 								</li>
 							<li {%if clase == 'contactanos'%}
-								class="current" {%endif%}><a href="contactanos">Contactanos</a></li>
+								class="current" {%endif%}><a href="{% url 'contactanos'%}">Contactanos</a></li>
 							<li {%if clase == 'registro'%}
-								class="current" {%endif%}><a href="registro">Registrate</a></li>
+								class="current" {%endif%}><a href="{% url 'registro'%}">Registrate</a></li>
 							<li>
 								{% if user.is_authenticated %}
 								
 								<a href="#">{{user.username}}</a>
 								<ul>
-									<form id="logoutForm" action="accounts/logout/" method="post" class="navbar-right">
+									<form id="logoutForm" action="{% url 'logout'%}" method="post" class="navbar-right">
 										{% csrf_token %}
 										<li {%if clase == 'login'%}
 										class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>			
