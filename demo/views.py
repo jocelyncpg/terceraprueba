@@ -145,5 +145,5 @@ def alumnosUpdate(request):
         context = {'alumnos': alumnos}
         return render(request, 'alumnos/alumnos_list.html', context)
     
-
+    
    

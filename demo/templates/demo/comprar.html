@@ -29,12 +29,12 @@
 							<li {%if clase == 'inicio'%}
 								class="current" {%endif%}><a href="/">Inicio</a></li>
 								<li>
-									<a href="#">Productos</a>
+									<a href="{% url 'vinilo'%}">Productos</a>
 									<ul>
-										<li><a href="vinilo">Vinilos</a></li>
-										<li><a href="cd">CD</a></li>
-										<li><a href="cassette">Cassette</a></li>
-										<li><a href="#">Otro</a></li>
+										<li><a href="{% url 'vinilo'%}">Vinilos</a></li>
+										<li><a href="{% url 'cd'%}">CD</a></li>
+										<li><a href="{% url 'cassette'%}">Cassette</a></li>
+										<li><a href="{% url 'comprar'%}">Todo</a></li>
 									</ul>
 								</li>
 							<li {%if clase == 'contactanos'%}
@@ -44,13 +44,13 @@
 							<li>
 								{% if user.is_authenticated %}
 								
-								<a href="#">{{user.username}}</a>
+								<a href="{% url 'crud'%}">{{user.username}}</a>
 								<ul>
 									<form id="logoutForm" action="accounts/logout/" method="post" class="navbar-right">
 										{% csrf_token %}
 										<li {%if clase == 'login'%}
 										class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>			
-										<a href="crud"> Mis compras</a>	
+										<a href="{% url 'crud'%}"> Mis compras</a>	
 									</ul>		
 									</form>
 								{% else %}
@@ -229,7 +229,7 @@
                 <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
             </div>
         </div>
-        
+
         <div class="box">
             <img src="static/imagenbanda/theb.jpeg" alt="">
             <div class="product-txt">

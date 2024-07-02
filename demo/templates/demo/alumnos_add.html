@@ -1,56 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% load static %} 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% extends "demo/base.html" %}
 
-</head>
-<body>
+{%block content %}
 
-    <style>
-        .idMensaje{
-            color: white;
-        }
+{% comment %} <style>
+        
+    .footer{
+        padding: 50px 0;
+        background-color: #000000;
+        color: white;
+    }
     
-        body{
-          background-color: black;
-          color: white;
-        }
-        h1{
-          color: white;
-          font-size: 75px;
-        }
-      </style>
-    
+    .footer-content{
+        display: flex;
+        justify-content: space-between;
+    }
+
+</style> {% endcomment %}
+					<!-- Banner -->
+                    <section id="banner">
+                        <header>
+                            <h2>Agregar Musica</h2>
+                            <p>Disponibles en todos los formatos.</p>
+                        </header>
+                    </section>
     <div style=" text-align: center;">
         <h2>Agregar Musica</h2><br>
+            <div class="container" >
+                <table> 
+                <form action="{% url '' %}" method="POST">
+                    {% csrf_token %}
 
-        <div class="container" >
-        
-        <table class="table table-striped table-dark"> 
-        <form action="{% url 'alumnosAdd' %}" method="POST">
-            {% csrf_token %}
-
-            <pre>Grupo/Cantante:     <input type="text" name="rut"  ></pre>
-            <pre>Formato:             <input type="text" name="nombre"  ></pre>
- 
-
-
-
-            <input type="submit" name="opcion" value="Agregar">
-        </form> <br><br>
-    </table> 
-        <a href="{% url 'crud' %}">Volver</a>
-        <br>
-        <div id="idMensajes">
-            {% if mensaje %}
-            {{mensaje}}
-            {% endif %}
-        </div>
+                    <pre>Cantante: <input type="text" name="rut"  ></pre>
+                    <pre>Formato:  <input type="text" name="nombre"  ></pre>
+                    <br><br>
+                    <input type="submit" name="opcion" value="Agregar">
+                </form> <br><br>
+                </table> 
+            </div>
+                <a href="{% url 'crud' %}">Volver</a>
+                <br>
+                <div id="idMensajes">
+                    {% if mensaje %}
+                    {{mensaje}}
+                    {% endif %}
+                </div>
+   
     </div>
 
-</body>
-</html>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.dropotron.min.js"></script>
+    <script src="static/js/browser.min.js"></script>
+    <script src="static/js/breakpoints.min.js"></script>
+    <script src="static/js/util.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/empresa.js"></script>
+    <script src="static/js/script.js"></script>
+{% endblock %}

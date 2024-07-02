@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class Musician(models.Model):
     # id_musician  = models.AutoField(db_column='idMusician', primary_key=True)
     first_name = models.CharField(max_length=50)

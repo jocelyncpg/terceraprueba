@@ -34,7 +34,7 @@ form.addEventListener("submit", e=>{
         entrar = true
     }
     if(local.value.length <6){
-        warnings += `El local no es valido <br>`
+        warnings += `El Alias es muy corto <br>`
         entrar = true
     }
     if(!regexEmail.test(email.value)){
@@ -42,7 +42,7 @@ form.addEventListener("submit", e=>{
         entrar = true
     }
     if(pass.value.length < 8){
-        warnings += `La contraseña no es valida <br>`
+        warnings += `La contraseña es muy corta <br>`
         entrar = true
     }
     if(entrar){
