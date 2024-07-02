@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import Album,Musician 
+from .models import Album, Musician 
+from .forms import AlbumForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -142,3 +144,6 @@ def alumnosUpdate(request):
         alumnos = Alumno.objects.all()
         context = {'alumnos': alumnos}
         return render(request, 'alumnos/alumnos_list.html', context)
+    
+
+   

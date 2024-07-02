@@ -2,22 +2,38 @@
 
 {%block content %}
 
-<!DOCTYPE html>
+					<!-- Banner -->
+                    <section id="banner">
+                        <header>
+                            <h2>Bienvenidos a LIVE music</h2>
+                            <p> Ingresa a tu cuenta y descubre las novedades que tenemos para ti</p>
+                        </header>
+                    </section>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+        <div class="container"  style="margin-top: 2%; margin-left: 35%;" >
+            <table>
+                <form  method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" >Entrar</button>
+                </form>
+                
+            </table>       
+        </div>
 
-    <h1>Login</h1>
+<div id="idMensaje">
+  {% if mensaje %}
+  {{mensaje}}
+  {%endif%}
+</div>
    
-    <form  method="POST" class="container">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Entrar</button>
-    </form>
-   
-
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.dropotron.min.js"></script>
+    <script src="static/js/browser.min.js"></script>
+    <script src="static/js/breakpoints.min.js"></script>
+    <script src="static/js/util.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/empresa.js"></script>
+    <script src="static/js/script.js"></script>
 
 {%endblock%}
