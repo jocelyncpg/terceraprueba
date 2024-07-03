@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% load static %} 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Postulantes</title>
- 
-</head>
-<body>
+{% extends "demo/base.html" %}
 
+{%block content %}
+
+
+    <style>
+        .idMensaje{
+            color: black;
+        }
+        pre{
+            color: white;
+            text-align: left;
+            font-size: 17px;
+        }
+      </style>
     <style>
         .idMensaje{
             color: white;
@@ -24,6 +28,7 @@
         }
       </style>
 
+
     <div style=" text-align: center;">
       {% if postulante %}
           <h2>Actualizar Datos Postulantes</h2><br>
@@ -37,7 +42,7 @@
           <div class="container" >
       
 
-            <table class="table table-striped table-dark">  
+
           <form action="{% url 'alumnosUpdate' %}" method="POST">
               {% csrf_token %}
 
@@ -59,15 +64,16 @@
               <pre>Celular:            <input type="text" name="telefono"  value="{{postulante.telefono}}" ></pre>
               <pre>Email:              <input type="mail" name="email"  value="{{postulante.email}}"></pre>
               <pre>Direccion:         <input type="text" name="direccion"  value="{{postulante.direccion}}"></pre>
+              <br><br>
               <input type="submit" name="opcion" value="Actualizar">
           </form><br><br>
         {% endif %} 
 
+
         <br><br>
-    </table>  
-        <a href="{% url 'crud' %}"> Volver </a>
+     <a href="{% url 'crud'  %}" ><button class="btn btn-danger">Volver</button></a>   
+
     </div>
 
-</body>
-</html>
 
+    {% endblock %}
