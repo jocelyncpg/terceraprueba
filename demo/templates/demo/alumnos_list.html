@@ -24,7 +24,7 @@
   </style>
 
 
-    <h1 style="text-align:center">Postulantes </h1>
+    <h1 style="text-align:center">Postulantes</h1>
 
 
     <div class="container" >
@@ -47,8 +47,8 @@
                 <td>{{postulante.rut}}</td>
                 <td>{{postulante.nombre}} {{postulante.apellido_paterno}} {{postulante.apellido_materno}}</td>
                 <td>{{postulante.telefono}}</td>
-                <td><a href="{% url 'alumnos_del' pk=demo.rut %}" button class="btn btn-danger">Eliminar</button></a></td>                
-                <td><a href="{% url 'alumnos_findEdit' pk=demo.rut %}"button class="btn btn-success">Modificar</button></a></td>  
+                <td><a href="{% url 'alumnos_del' pk=postulante.rut %}" button class="btn btn-danger">Eliminar</button></a></td>                
+                <td><a href="{% url 'alumnos_findEdit' pk=postulante.rut %}"button class="btn btn-success">Modificar</button></a></td>  
                
               </tr>
             

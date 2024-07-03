@@ -28,7 +28,12 @@
       {% if postulante %}
           <h2>Actualizar Datos Postulantes</h2><br>
          
-         
+          <div id="idMensajes" style="color: white;">  
+            {% if mensaje %}
+            {{mensaje}}
+            {% endif %}   
+    </div>
+
           <div class="container" >
       
 
@@ -57,11 +62,7 @@
               <input type="submit" name="opcion" value="Actualizar">
           </form><br><br>
         {% endif %} 
-        <div id="idMensajes">  
-                {% if mensaje %}
-                {{mensaje}}
-                {% endif %}   
-        </div>
+
         <br><br>
     </table>  
         <a href="{% url 'crud' %}"> Volver </a>

@@ -40,16 +40,16 @@ def comprar(request):
 
 def listadoSQL(request):
     # demo=Album.objects.raw('SELECT * FROM demo_Album')
-    demo = Album.objects.all()
+    demo = Postulante.objects.all()
     print(demo)
-    context={"demo":demo}
+    context={"demo": demo}
     return render(request, 'demo/listadoSQL.html', context)
 
-
-
 def crud(request):
-    context={"clase": "crud"}
+    demo = Postulante.objects.all()
+    context={"demo": demo}
     return render(request, 'demo/alumnos_list.html', context)
+
 
 def alumnosAdd(request):
     if request.method != "POST":
@@ -88,38 +88,38 @@ def alumnosAdd(request):
 def alumnos_del(request, pk):
     context={}
     try:
-        alumno = Alumno.objects.get(rut=pk)
-        alumno.delete()
+        postulante = Postulante.objects.get(rut=pk)
+        postulante.delete()
         mensaje ="Bien, datos eliminados..."
-        alumnos = Alumno.objects.all()
-        context = {'alumnos': alumnos, 'mensaje': mensaje}
-        return render(request, 'alumnos/alumnos_list.html', context)
+        postulantes = Postulante.objects.all()
+        context = {'postulantes': postulantes, 'mensaje': mensaje}
+        return render(request, 'demo/alumnos_list.html', context)
     except:
         mensaje = "Error, rut no existe..."
-        alumnos = Alumno.objects.all()
-        context = {'alumnos': alumnos, 'mensaje': mensaje}
-        return render(request, 'alumnos/alumnos_list.html', context)
+        alumnos = Postulante.objects.all()
+        context = {'postulantes': postulante, 'mensaje': mensaje}
+        return render(request, 'demo/alumnos_list.html', context)
         
 def alumnos_finEdit(request,pk):
     if  pk != "":
-        alumno = Alumno.objects.get(rut=pk)
+        postulante = Postulante.objects.get(rut=pk)
         generos = Genero.objects.all()
             
-        print(type(alumno.id_genero.genero))
+        print(type(postulante.id_genero.genero))
             
-        context={'alumno':alumno, 'generos': generos}
-    if alumno:
-        return render(request, 'alumnos/alumnos_edit.html', context)
+        context={'postulante':postulante, 'generos': generos}
+    if postulante:
+        return render(request, 'demo/alumnos_edit.html', context)
     else:
         context={'mensaje':"Error, rut no existe..."}
-        return render(request, 'alumnos/alumnos_list.html', context)
+        return render(request, 'demo/alumnos_list.html', context)
             
 def alumnosUpdate(request):
     if request.method == "POST":
         rut = request.POST["rut"]
         nombre = request.POST["nombre"]
-        apaterno = request.POST["apaterno"]
-        amaterno = request.POST["amaterno"]
+        apaterno = request.POST["paterno"]
+        amaterno = request.POST["materno"]
         fechaNac = request.POST["fechaNac"]
         genero = request.POST["genero"]
         telefono = request.POST["telefono"]
@@ -128,30 +128,30 @@ def alumnosUpdate(request):
         activo = "1"
 
         objGenero = Genero.objects.get(id_genero=genero)
-        alumno = Alumno()
-        alumno.rut = rut
-        alumno.nombre = nombre
-        alumno.apellido_paterno = apaterno
-        alumno.apellido_materno = amaterno
-        alumno.fecha_nacimiento = fechaNac
-        alumno.id_genero = objGenero  # Asociar el genero correctamente
-        alumno.telefono = telefono
-        alumno.email = email
-        alumno.direccion = direccion
-        alumno.activo = activo
-        alumno.save()
+        postulante = Postulante()
+        postulante.rut = rut
+        postulante.nombre = nombre
+        postulante.apellido_paterno = apaterno
+        postulante.apellido_materno = amaterno
+        postulante.fecha_nacimiento = fechaNac
+        postulante.id_genero = objGenero  # Asociar el genero correctamente
+        postulante.telefono = telefono
+        postulante.email = email
+        postulante.direccion = direccion
+        postulante.activo = activo
+        postulante.save()
 
         generos = Genero.objects.all()
         context = {
             'mensaje': "Datos actualizados",
             'generos': generos,
-            'alumno': alumno
+            'postulante': postulante
         }
-        return render(request, 'alumnos/alumnos_edit.html', context)
+        return render(request, 'demo/alumnos_edit.html', context)
     else:
-        alumnos = Alumno.objects.all()
-        context = {'alumnos': alumnos}
-        return render(request, 'alumnos/alumnos_list.html', context)
+        postulantes = Postulante.objects.all()
+        context = {'postulantes': postulantes}
+        return render(request, 'demo/alumnos_list.html', context)
     
     
    

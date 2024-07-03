@@ -50,7 +50,7 @@
 						  {% csrf_token %}
 						  <li {%if clase == 'login'%}
 						  class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>			
-						  <a href="{% url 'crud'%}"> Mis compras</a>	
+						  <a href="{% url 'crud'%}"> Postulantes</a>	
 						</ul>		
 						</form>
 					  {% else %}
