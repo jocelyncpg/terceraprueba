@@ -42,6 +42,7 @@
 					<li {%if clase == 'registro'%}
 					  class="current" {%endif%}><a href="{% url 'registro'%}">Registrate</a></li>
 					<li>
+
 					  {% if user.is_authenticated %}
 					  
 					  <a href="{% url 'crud'%}">{{user.username}}</a>
@@ -65,7 +66,7 @@
 					  class="current" {%endif%}><a href="{% url 'comprar'%}"><img src="{% static 'images/car.jpeg' %}" id="img-carrito" alt="" style="align-content: center;" width="25" height="25"></a>								
 					  <ul>
 						<li>
-						  <a href="#">Mi carrito</a>
+						  <a href="{% url 'comprar'%}">Comprar</a>
 						  <input type="checkbox" id="menu">
 						  <div>
 							<ul>

@@ -61,6 +61,44 @@
 								  </li>
 								{% endif %}
 							</li>	
+                            <li {%if clase == 'comprar'%}
+                            class="current" {%endif%}><a href="{% url 'comprar'%}"><img src="{% static 'images/car.jpeg' %}" id="img-carrito" alt="" style="align-content: center;" width="25" height="25"></a>								
+                            <ul>
+                              <li>
+                                <a href="{% url 'comprar'%}">Comprar</a>
+                                <input type="checkbox" id="menu">
+                                <div>
+                                  <ul>
+                                    <li class="submenu">
+                                      <div id="carrito">
+                                        <table id="lista-carrito">
+                                          <thead>
+                                            <tr>
+                                              <th>Imagen</th>
+                                              <th>Nombre</th>
+                                              <th>Precio</th>
+                                              <th></th>
+                                            </tr>
+                                          </thead>
+                                          <tbody></tbody>
+                                        </table>
+                                        <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                              <li>
+                                <a href="{% url 'vinilo'%}">Productos</a>
+                                <ul>
+                                  <li><a href="{% url 'vinilo'%}">Vinilos</a></li>
+                                  <li><a href="{% url 'cd'%}">CD</a></li>
+                                  <li><a href="{% url 'cassette'%}">Cassette</a></li>
+                                  <li><a href="#">Otro</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
                             	
 						</ul>
 					</nav>

@@ -7,14 +7,10 @@
         .idMensaje{
             color: black;
         }
-    
-        body{
-          background-color: white;
-          color: black;
-        }
-        h1{
-          color: white;
-          font-size: 75px;
+        pre{
+            color: white;
+            text-align: left;
+            font-size: 17px;
         }
       </style>
     
@@ -31,28 +27,25 @@
                 <form action="{% url 'alumnosAdd' %}" method="POST">
                     {% csrf_token %}
 
-                    <pre style="text-align: left;">Rut:                <input type="text" name="rut"  ></pre>
-                    <pre style="text-align: left;">Nombre:             <input type="text" name="nombre"  ></pre>
-                    <pre style="text-align: left;">Apellido P.:        <input type="text" name="paterno"  ></pre>
-                    <pre style="text-align: left;">Apellido M.:        <input type="text" name="materno"  ></pre>
-                    <pre style="text-align: left;">Fecha Nac.:            <input type="date" name="fechaNac"  ></pre>
-                    <pre style="text-align: left;">Genero                 <select name="genero">
+                    <pre >Rut:                <input type="text" name="rut"  ></pre>
+                    <pre >Nombre:             <input type="text" name="nombre"  ></pre>
+                    <pre >Apellido P.:        <input type="text" name="paterno"  ></pre>
+                    <pre >Apellido M.:        <input type="text" name="materno"  ></pre>
+                    <pre >Fecha Nac.:            <input type="date" name="fechaNac"  ></pre>
+                    <pre >Genero                 <select name="genero">
                         {% for genero in generos %}
                         <option value="{{genero.id_genero}}">{{genero.genero}}</option>
                         {% endfor %}
                     </select></pre>
-                    <pre style="text-align: left;">Celular:            <input type="text" name="telefono"  ></pre>
-                    <pre style="text-align: left;">Email:              <input type="mail" name="email"  ></pre>
-                    <pre style="text-align: left;">Direccion:         <input type="text" name="direccion"  ></pre>
+                    <pre>Celular:            <input type="text" name="telefono"  ></pre>
+                    <pre >Email:              <input type="mail" name="email"  ></pre>
+                    <pre >Direccion:         <input type="text" name="direccion"  ></pre>
 
-
+<br><br>
                     <input type="submit" name="opcion" value="Agregar">
                 </form> <br><br>
 
 
-    </div>       
-        <a href="{% url 'index' %}">Volver</a>
-        <br>
-    </div>
+
 
     {% endblock %}

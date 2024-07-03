@@ -3,6 +3,7 @@ from .models import Album, Musician, Postulante, Genero
 from .forms import AlbumForm
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
 def index(request):
     context={"clase": "inicio"}
@@ -12,10 +13,14 @@ def vinilo(request):
     context={"clase": "vinilo"}
     return render(request, 'demo/vinilo.html', context)
 
+
 def registro(request):
     context={"clase": "registro"}
     return render(request, 'demo/registro.html', context)
 
+
+
+@login_required
 def login(request):
     context={}
     return render(request, 'accounts/login.html', context)
