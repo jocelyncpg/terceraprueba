@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Album, Musician 
+from .models import Album, Musician, Postulante, Genero 
 from .forms import AlbumForm
 from django.contrib.auth.decorators import login_required
 
@@ -53,21 +53,29 @@ def crud(request):
 
 def alumnosAdd(request):
     if request.method != "POST":
-        context = {}
+        generos = Genero.objects.all()
+        context = {"generos": generos}
         return render(request, 'demo/alumnos_add.html', context)
     else:
         rut = request.POST["rut"]
         nombre = request.POST["nombre"]
-
+        aPaterno = request.POST["paterno"]
+        aMaterno = request.POST["materno"]
+        fechaNac = request.POST["fechaNac"]
+        genero = request.POST["genero"]
+        telefono = request.POST["telefono"]
+        email = request.POST["email"]
+        direccion = request.POST["direccion"]
+        activo = "1"
 
         objGenero = Genero.objects.get(id_genero=genero)
-        obj = Alumno.objects.create(
+        obj = Postulante.objects.create(
             rut=rut,
             nombre=nombre,
-            apellido_paterno=apaterno,
-            apellido_materno=amaterno,
+            apellido_paterno=aPaterno,
+            apellido_materno=aMaterno,
             fecha_nacimiento=fechaNac,
-            id_genero=objGenero,  
+            id_genero=objGenero,  # Asociar el genero correctamente
             telefono=telefono,
             email=email,
             direccion=direccion,
@@ -75,7 +83,7 @@ def alumnosAdd(request):
         )
         obj.save()
         context = {'mensaje': "OK, datos grabados..."}
-        return render(request, 'alumnos/alumnos_add.html', context)
+        return render(request, 'demo/alumnos_add.html', context)
     
 def alumnos_del(request, pk):
     context={}

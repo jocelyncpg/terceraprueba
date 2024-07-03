@@ -1,58 +1,66 @@
-{% extends "demo/base.html" %}
 
-{%block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %} 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-{% comment %} <style>
-        
-    .footer{
-        padding: 50px 0;
-        background-color: #000000;
-        color: white;
-    }
+</head>
+<body>
+
+    <style>
+        .idMensaje{
+            color: black;
+        }
     
-    .footer-content{
-        display: flex;
-        justify-content: space-between;
-    }
-
-</style> {% endcomment %}
-					<!-- Banner -->
-                    <section id="banner">
-                        <header>
-                            <h2>Agregar Musica</h2>
-                            <p>Disponibles en todos los formatos.</p>
-                        </header>
-                    </section>
+        body{
+          background-color: white;
+          color: black;
+        }
+        h1{
+          color: white;
+          font-size: 75px;
+        }
+      </style>
+    
     <div style=" text-align: center;">
-        <h2>Agregar Musica</h2><br>
-            <div class="container" >
-                <table> 
-                <form action="{% url '' %}" method="POST">
-                    {% csrf_token %}
+        <h2>Datos Postulantes</h2><br>
 
-                    <pre>Cantante: <input type="text" name="rut"  ></pre>
-                    <pre>Formato:  <input type="text" name="nombre"  ></pre>
-                    <br><br>
-                    <input type="submit" name="opcion" value="Agregar">
-                </form> <br><br>
-                </table> 
-            </div>
-                <a href="{% url 'crud' %}">Volver</a>
-                <br>
-                <div id="idMensajes">
-                    {% if mensaje %}
-                    {{mensaje}}
-                    {% endif %}
-                </div>
-   
+        <div class="container" >
+        
+        <table class="table table-striped table-dark"> 
+        <form action="{% url 'alumnosAdd' %}" method="POST">
+            {% csrf_token %}
+
+            <pre>Rut:                <input type="text" name="rut"  ></pre>
+            <pre>Nombre:             <input type="text" name="nombre"  ></pre>
+            <pre>Apellido P.:        <input type="text" name="paterno"  ></pre>
+            <pre>Apellido M.:        <input type="text" name="materno"  ></pre>
+            <pre>Fecha Nac.:            <input type="date" name="fechaNac"  ></pre>
+            <pre>Genero                 <select name="genero">
+                {% for genero in generos %}
+                <option value="{{genero.id_genero}}">{{genero.genero}}</option>
+                {% endfor %}
+            </select></pre>
+            <pre>Celular:            <input type="text" name="telefono"  ></pre>
+            <pre>Email:              <input type="mail" name="email"  ></pre>
+            <pre>Direccion:         <input type="text" name="direccion"  ></pre>
+
+
+            <input type="submit" name="opcion" value="Agregar">
+        </form> <br><br>
+    </table> 
+        <a href="{% url 'crud' %}">Volver</a>
+        <br>
+        <div id="idMensajes">
+            {% if mensaje %}
+            {{mensaje}}
+            {% endif %}
+        </div>
     </div>
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/jquery.dropotron.min.js"></script>
-    <script src="static/js/browser.min.js"></script>
-    <script src="static/js/breakpoints.min.js"></script>
-    <script src="static/js/util.js"></script>
-    <script src="static/js/main.js"></script>
-    <script src="static/js/empresa.js"></script>
-    <script src="static/js/script.js"></script>
-{% endblock %}
+</body>
+</html>

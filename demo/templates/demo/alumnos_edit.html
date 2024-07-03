@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     {% load static %} 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alumnos</title>
+    <title>Postulantes</title>
  
 </head>
 <body>
@@ -25,8 +25,8 @@
       </style>
 
     <div style=" text-align: center;">
-      {% if alumno %}
-          <h2>Actualizar Datos Alumnos</h2><br>
+      {% if postulante %}
+          <h2>Actualizar Datos Postulantes</h2><br>
          
          
           <div class="container" >
@@ -36,14 +36,14 @@
           <form action="{% url 'alumnosUpdate' %}" method="POST">
               {% csrf_token %}
 
-              <pre>Rut:                <input type="text" name="rut"  value="{{alumno.rut}}" ></pre>
-              <pre>Nombre:             <input type="text" name="nombre"  value="{{alumno.nombre}}"  ></pre>
-              <pre>Apellido P.:        <input type="text" name="paterno"  value="{{alumno.apellido_paterno}}" ></pre>
-              <pre>Apellido M.:        <input type="text" name="materno"  value="{{alumno.apellido_materno}}" ></pre>
-              <pre>Fecha Nac.:             <input type="date" name="fechaNac"  value="{{alumno.fecha_nacimiento|date:'Y-m-d'}}" ></pre>
+              <pre>Rut:                <input type="text" name="rut"  value="{{postulante.rut}}" ></pre>
+              <pre>Nombre:             <input type="text" name="nombre"  value="{{postulante.nombre}}"  ></pre>
+              <pre>Apellido P.:        <input type="text" name="paterno"  value="{{postulante.apellido_paterno}}" ></pre>
+              <pre>Apellido M.:        <input type="text" name="materno"  value="{{postulante.apellido_materno}}" ></pre>
+              <pre>Fecha Nac.:             <input type="date" name="fechaNac"  value="{{postulante.fecha_nacimiento|date:'Y-m-d'}}" ></pre>
               <pre>Genero                    <select name="genero">
                   {% for genero in generos %}
-                      {% if genero.genero == alumno.id_genero.genero %}
+                      {% if genero.genero == postulante.id_genero.genero %}
                       <option value="{{genero.id_genero}}" selected>{{genero.genero}}</option>
                       {% else %}
                       <option value="{{genero.id_genero}}" >{{genero.genero}}</option>           
@@ -51,9 +51,9 @@
                       {% endfor %}
 
               </select></pre>
-              <pre>Celular:            <input type="text" name="telefono"  value="{{alumno.telefono}}" ></pre>
-              <pre>Email:              <input type="mail" name="email"  value="{{alumno.email}}"></pre>
-              <pre>Direccion:         <input type="text" name="direccion"  value="{{alumno.direccion}}"></pre>
+              <pre>Celular:            <input type="text" name="telefono"  value="{{postulante.telefono}}" ></pre>
+              <pre>Email:              <input type="mail" name="email"  value="{{postulante.email}}"></pre>
+              <pre>Direccion:         <input type="text" name="direccion"  value="{{postulante.direccion}}"></pre>
               <input type="submit" name="opcion" value="Actualizar">
           </form><br><br>
         {% endif %} 
@@ -69,3 +69,4 @@
 
 </body>
 </html>
+
