@@ -3,7 +3,7 @@ from .models import Album, Musician, Postulante, Genero
 from .forms import AlbumForm
 from django.contrib.auth.decorators import login_required
 
-
+    
 # Create your views here.
 def index(request):
     context={"clase": "inicio"}

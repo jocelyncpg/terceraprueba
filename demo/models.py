@@ -43,3 +43,4 @@ class Postulante(models.Model):
 
     def __str__(self):
         return str(self.nombre)+" "+str(self.apellido_paterno)       
+    
