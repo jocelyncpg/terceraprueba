@@ -27,11 +27,17 @@
           font-size: 75px;
         }
       </style>
-
+					<!-- Banner -->
+          <section id="banner">
+            <header>
+                <h2>Bienvenidos a LIVE music</h2>
+                <p> Editar Postulantes</p>
+            </header>
+        </section>
 
     <div style=" text-align: center;">
       {% if postulante %}
-          <h2>Actualizar Datos Postulantes</h2><br>
+
          
           <div id="idMensajes" style="color: white;">  
             {% if mensaje %}
@@ -39,10 +45,8 @@
             {% endif %}   
     </div>
 
+    <main class="products container">
           <div class="container" >
-      
-
-
           <form action="{% url 'alumnosUpdate' %}" method="POST">
               {% csrf_token %}
 
@@ -68,12 +72,9 @@
               <input type="submit" name="opcion" value="Actualizar">
           </form><br><br>
         {% endif %} 
-
-
-        <br><br>
      <a href="{% url 'crud'  %}" ><button class="btn btn-danger">Volver</button></a>   
 
     </div>
-
+  </main>
 
     {% endblock %}

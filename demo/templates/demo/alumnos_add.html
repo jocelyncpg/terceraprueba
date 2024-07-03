@@ -13,7 +13,14 @@
             font-size: 17px;
         }
       </style>
-    
+					<!-- Banner -->
+                    <section id="banner">
+                        <header>
+                            <h2>Bienvenidos a LIVE music</h2>
+                            <p> Postulantes</p>
+                        </header>
+                    </section>
+
     <div style=" text-align: center;">
         <h2>Datos Postulantes</h2><br>
 <div id="idMensajes">
@@ -21,10 +28,10 @@
     {{mensaje}}
     {% endif %}
 </div>
-    <div class="container" >
 
-  
-                <form action="{% url 'alumnosAdd' %}" method="POST">
+<main class="products container">
+    <div class="container" >
+    <form action="{% url 'alumnosAdd' %}" method="POST">
                     {% csrf_token %}
 
                     <pre >Rut:                <input type="text" name="rut"  ></pre>
@@ -43,9 +50,12 @@
 
 <br><br>
                     <input type="submit" name="opcion" value="Agregar">
+
                 </form> <br><br>
+                <a href="{% url 'crud'  %}" ><button class="btn btn-danger">Volver</button></a>   
 
-
+            </div>
+            </main>
 
 
     {% endblock %}
