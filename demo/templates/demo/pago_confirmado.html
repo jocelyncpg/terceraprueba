@@ -111,27 +111,22 @@
                          
         
 
-
 					<!-- Banner -->
                     <section id="banner">
                         <header>
-                            <h2>Bienvenidos a LIVE music</h2>
-                            <p>¿Quieres ser parte de nuestra comunidad? Crea tu cuenta y descubre que tenemos para ti</p>
+                            <h2>Pago Confirmado</h2>
+
+                            <p>Se ha procesado un pago por un monto de {{ amount }} CLP.</p>
+                            {% if payment_successful %}
+                                <p>El pago fue exitoso.</p>
+                            {% else %}
+                                <p>El pago ha fallado.</p>
+                            {% endif %}
+                            <br><br>
+                            <a href="{% url 'comprar' %}"> <button>Volver a comprar</button></a>
                         </header>
                     </section>
                     
-     <header class="container1">
-        <div class="container1-content container">
-   
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <button type="submit">Crear</button>
-                        </form>
-  
-         </div>
-    </header>    
-    
-    
+
 </body>
 </html>

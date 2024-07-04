@@ -38,9 +38,9 @@
 									</ul>
 								</li>
 							<li {%if clase == 'contactanos'%}
-								class="current" {%endif%}><a href="contactanos">Contactanos</a></li>
+								class="current" {%endif%}><a href="{% url 'contactanos'%}">Contactanos</a></li>
 							<li {%if clase == 'registro'%}
-								class="current" {%endif%}><a href="registro">Registrate</a></li>
+								class="current" {%endif%}><a href="{% url 'registro'%}">Registrate</a></li>
                                 <li>
                                     <li {%if clase == 'signup'%}
                                     class="current" {%endif%}><a href="{% url 'signup'%}">Crea tu cuenta</a></li>
@@ -109,6 +109,8 @@
 
 			</div>
                          
+        
+  
         
     <style>
         

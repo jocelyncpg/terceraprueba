@@ -10,6 +10,21 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
+from django.views import View
+from django.conf import settings
+
+class PagoView(View):
+    def get(self, request):
+        return render(request, 'demo/pago.html')
+    
+    def post(self, request):
+        # Aquí manejarías la lógica de pago simulada
+        amount = 1000  # Ejemplo de monto a pagar
+        context = {
+            'amount': amount,
+            'payment_successful': True  # Simulación de pago exitoso
+        }
+        return render(request, 'demo/pago_confirmado.html', context)
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
