@@ -42,7 +42,9 @@
 					<li {%if clase == 'registro'%}
 					  class="current" {%endif%}><a href="{% url 'registro'%}">Registrate</a></li>
 					<li>
-
+						<li {%if clase == 'signup'%}
+						class="current" {%endif%}><a href="{% url 'signup'%}">Crea tu cuenta</a></li>
+					  <li>
 					  {% if user.is_authenticated %}
 					  
 					  <a href="{% url 'crud'%}">{{user.username}}</a>

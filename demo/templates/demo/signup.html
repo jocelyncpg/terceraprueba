@@ -1,0 +1,137 @@
+
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>LIVE music</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href={% static "/css/main.css" %} />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+            <body class="is-preload">
+                <div id="page-wrapper">
+   
+			<!-- Header -->
+				<div id="header">
+					<img src="{% static 'images/logoempresa.png' %}" alt="" style="height: 400px;">
+					
+
+					<!-- Logo -->
+				
+						<h1><a href="index.html" id="logo">LIVE MUSIC <em>Tenemos la música que buscas</em></a></h1>
+
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li {%if clase == 'inicio'%}
+								class="current" {%endif%}><a href="/">Inicio</a></li>
+								<li>
+									<a href="{% url 'vinilo'%}">Productos</a>
+									<ul>
+										<li><a href="{% url 'vinilo'%}">Vinilos</a></li>
+										<li><a href="{% url 'cd'%}">CD</a></li>
+										<li><a href="{% url 'cassette'%}">Cassette</a></li>
+										<li><a href="{% url 'comprar'%}">Todo</a></li>
+									</ul>
+								</li>
+							<li {%if clase == 'contactanos'%}
+								class="current" {%endif%}><a href="contactanos">Contactanos</a></li>
+							<li {%if clase == 'registro'%}
+								class="current" {%endif%}><a href="registro">Registrate</a></li>
+                                <li>
+                                    <li {%if clase == 'signup'%}
+                                    class="current" {%endif%}><a href="{% url 'signup'%}">Crea tu cuenta</a></li>
+                                  <li>                
+							<li>
+								{% if user.is_authenticated %}
+								
+								<a href="{% url 'crud'%}">{{user.username}}</a>
+								<ul>
+									<form id="logoutForm" action="accounts/logout/" method="post" class="navbar-right">
+										{% csrf_token %}
+										<li {%if clase == 'login'%}
+										class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>			
+										<a href="{% url 'crud'%}"> Postulantes</a>	
+									</ul>		
+									</form>
+								{% else %}
+								<li {%if clase == 'login'%}
+								class="current" {%endif%} class="nav-item">
+									<a href="{% url 'login'%}">Login</a>
+
+								  </li>
+								{% endif %}
+							</li>	
+                            <li {%if clase == 'comprar'%}
+                            class="current" {%endif%}><a href="{% url 'comprar'%}"><img src="{% static 'images/car.jpeg' %}" id="img-carrito" alt="" style="align-content: center;" width="25" height="25"></a>								
+                            <ul>
+                              <li>
+                                <a href="{% url 'comprar'%}">Comprar</a>
+                                <input type="checkbox" id="menu">
+                                <div>
+                                  <ul>
+                                    <li class="submenu">
+                                      <div id="carrito">
+                                        <table id="lista-carrito">
+                                          <thead>
+                                            <tr>
+                                              <th>Imagen</th>
+                                              <th>Nombre</th>
+                                              <th>Precio</th>
+                                              <th></th>
+                                            </tr>
+                                          </thead>
+                                          <tbody></tbody>
+                                        </table>
+                                        <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                              <li>
+                                <a href="{% url 'vinilo'%}">Productos</a>
+                                <ul>
+                                  <li><a href="{% url 'vinilo'%}">Vinilos</a></li>
+                                  <li><a href="{% url 'cd'%}">CD</a></li>
+                                  <li><a href="{% url 'cassette'%}">Cassette</a></li>
+                                  <li><a href="#">Otro</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                            	
+						</ul>
+					</nav>
+
+			</div>
+                         
+        
+
+
+					<!-- Banner -->
+                    <section id="banner">
+                        <header>
+                            <h2>Bienvenidos a LIVE music</h2>
+                            <p>¿Estás buscando trabajo? Escribenos y te contactaremos a la brevedad</p>
+                        </header>
+                    </section>
+                    
+     <header class="container1">
+        <div class="container1-content container">
+   
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit">Crear</button>
+                        </form>
+  
+         </div>
+    </header>    
+    
+    
+</body>
+</html>

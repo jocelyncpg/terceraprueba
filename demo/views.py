@@ -2,6 +2,26 @@ from django.shortcuts import render
 from .models import Album, Musician, Postulante, Genero 
 from .forms import AlbumForm
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from django.views import generic
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.views import LoginView, LogoutView
+# demo/views.py
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from django.contrib.auth.forms import UserCreationForm
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('loginotros')
+    template_name = 'demo/signup.html'  # Asegúrate de que esta ruta sea correcta
+
+
+class LoginView(LoginView):
+    template_name = 'demo/loginotros.html'
+
+class LogoutView(LogoutView):
+    template_name = 'demo/logoutotros.html'
 
     
 # Create your views here.

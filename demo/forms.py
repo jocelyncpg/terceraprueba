@@ -7,4 +7,5 @@ class AlbumForm(ModelForm):
     class Meta:
         model=Album
         fields= "__all__"
+        
 
