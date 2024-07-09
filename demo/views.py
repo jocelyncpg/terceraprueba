@@ -48,12 +48,17 @@ def vinilo(request):
     context={"clase": "vinilo"}
     return render(request, 'demo/vinilo.html', context)
 
+def pago_confirmado(request):
+    context={}
+    return render(request, 'demo/pago_confirmado.html', context)
 
 def registro(request):
     context={"clase": "registro"}
     return render(request, 'demo/registro.html', context)
 
-
+def carrito(request):
+    context={"clase": "carrito"}
+    return render(request, 'demo/pagar.html', context)
 
 @login_required
 def login(request):
@@ -75,6 +80,11 @@ def cd(request):
 def comprar(request):
     context={}
     return render(request, 'demo/comprar.html', context)
+
+def pagar(request):
+    context={}
+    return render(request, 'demo/pagar.html', context)
+
 
 # ingresar
 

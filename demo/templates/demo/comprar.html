@@ -1,274 +1,247 @@
-
 {% load static %}
-<!DOCTYPE HTML>
-
-<html>
-	<head>
-		<title>LIVE music</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href={% static "/css/main.css" %} />
-	</head>
-	<body class="is-preload">
-		<div id="page-wrapper">
-            <body class="is-preload">
-                <div id="page-wrapper">
-   
-			<!-- Header -->
-				<div id="header">
-					<img src="{% static 'images/logoempresa.png' %}" alt="" style="height: 400px;">
-					
-
-					<!-- Logo -->
-				
-						<h1><a href="index.html" id="logo">LIVE MUSIC <em>Tenemos la música que buscas</em></a></h1>
-
-					<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li {%if clase == 'inicio'%}
-								class="current" {%endif%}><a href="/">Inicio</a></li>
-								<li>
-									<a href="{% url 'vinilo'%}">Productos</a>
-									<ul>
-										<li><a href="{% url 'vinilo'%}">Vinilos</a></li>
-										<li><a href="{% url 'cd'%}">CD</a></li>
-										<li><a href="{% url 'cassette'%}">Cassette</a></li>
-										<li><a href="{% url 'comprar'%}">Todo</a></li>
-									</ul>
-								</li>
-							<li {%if clase == 'contactanos'%}
-								class="current" {%endif%}><a href="contactanos">Contactanos</a></li>
-							<li {%if clase == 'registro'%}
-								class="current" {%endif%}><a href="registro">Registrate</a></li>
-							<li>
-                                <li>
-                                    <li {%if clase == 'signup'%}
-                                    class="current" {%endif%}><a href="{% url 'signup'%}">Crea tu cuenta</a></li>
-                                  <li>                                
-								{% if user.is_authenticated %}
-								
-								<a href="{% url 'crud'%}">{{user.username}}</a>
-								<ul>
-									<form id="logoutForm" action="accounts/logout/" method="post" class="navbar-right">
-										{% csrf_token %}
-										<li {%if clase == 'login'%}
-										class="current" {%endif%}><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>			
-										<a href="{% url 'crud'%}"> Postulantes</a>	
-									</ul>		
-									</form>
-								{% else %}
-								<li {%if clase == 'login'%}
-								class="current" {%endif%} class="nav-item">
-									<a href="{% url 'login'%}">Login</a>
-
-								  </li>
-								{% endif %}
-							</li>	
-                            	
-						</ul>
-					</nav>
-
-			</div>
-                         <!-- Banner -->
-                         <section id="banner">
-                            <header>
-                                <h2>Nuestros Productos</h2>
-                                <p>Disponibles en todos los formatos.</p>
-                            </header>
-                        </section>
-				
-
-
-<body class="is-preload">
-    <div id="page-wrapper">
-
-    <div class="card card-titulo">
-        <h4 class="card-titulo">LIVE music</h4>
-      </div>    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar - LIVE music</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
     
-      <nav class="navbar navbar-expand-lg navbar-light bg-light"style="color:black; background-color: white;">
-    
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02"style="color:black; background-color: white;">
-
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-             <!-- Navbar para todas las páginas -->
-              <li class="nav-item active">
-              
-                <input type="checkbox" id="menu">
-                <div>
+</head>
+<body >
+    <header id="header">
+        <img src="{% static 'images/logoempresa.png' %}" alt="" style="height: 400px;">
+        <h1><a href="/" id="logo">LIVE MUSIC <em>Tenemos la música que buscas</em></a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li>
+                    <a href="{% url 'vinilo' %}">Productos</a>
                     <ul>
-                        <li class="submenu">
-                            <img src="static/images/car.jpeg" id="img-carrito" alt="" style="padding-top: 0.5%" width="40" height="40">
-                            <div id="carrito">
-                                <table id="lista-carrito">
-                                    <thead>
-                                        <tr>
-                                            <th>Imagen</th>
-                                            <th>Nombre</th>
-                                            <th>Precio</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                                <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
-                            </div>
-                        </li>
+                        <li><a href="{% url 'vinilo' %}">Vinilos</a></li>
+                        <li><a href="{% url 'cd' %}">CD</a></li>
+                        <li><a href="{% url 'cassette' %}">Cassette</a></li>
+                        <li><a href="{% url 'comprar' %}">Todo</a></li>
                     </ul>
-                </div>
-           
-              </li>
-
-          </ul>
-        </div>
-      </nav>
-
-        
-<!-- Menu -->
-
-<header>
-    <div class="header-content container">
-      <div class="header-txt">
-
-   </header>
-
-<main class="products container">
-    <div class="box-container" id="lista-1">
-
-        <div class="box">
-            <img src="static/imagenbanda/kendrickl.jpeg" alt="">
-            <div class="product-txt">
-                <h3>Kendrick Lamar</h3>
-                <p>Formato en vinilo</p>
-                <p class="precio">$43.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="static/imagenbanda/chancho.jpeg" alt="">
-            <div class="product-txt">
-                <h3>Chancho en Piedra</h3>
-                <p>Formato en Vinilo</p>
-                <p class="precio">$53.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="static/imagenbanda/specials.jpg" alt="">
-            <div class="product-txt">
-                <h3>The Specials</h3>
-                <p>Formato en CD</p>
-                <p class="precio">$33.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="static/imagenbanda/bloquedepre.png" alt="">
-            <div class="product-txt">
-                <h3>Bloque Depresivo</h3>
-                <p>Formato en Cassete</p>
-                <p class="precio">$77.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="static/imagenbanda/bowie.png" alt="">
-            <div class="product-txt">
-                <h3>David Bowie</h3>
-                <p>Formato en Cassette</p>
-                <p class="precio">$22.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="static/imagenbanda/tool1.jpeg" alt="">
-            <div class="product-txt">
-                <h3>Tool</h3>
-                <p>Formato en Cassette</p>
-                <p class="precio">$30.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="static/imagenbanda/flori.jpeg" alt="">
-            <div class="product-txt">
-                <h3>La Floripondio</h3>
-                <p>Formato en CD</p>
-                <p class="precio">$13.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="static/imagenbanda/artic.jpeg" alt="">
-            <div class="product-txt">
-                <h3>Artic Monkey</h3>
-                <p>Formato en Cassette</p>
-                <p class="precio">$18.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
-            </div>
-        </div>        
-
-        <div class="box">
-            <img src="static/imagenbanda/post.jpeg" alt="">
-            <div class="product-txt">
-                <h3>Post Malone</h3>
-                <p>Formato en Cassette</p>
-                <p class="precio">$15.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="static/imagenbanda/metallica.jpeg" alt="">
-            <div class="product-txt">
-                <h3>Metallica</h3>
-                <p>calidad premium</p>
-                <p class="precio">$45.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="static/imagenbanda/theb.jpeg" alt="">
-            <div class="product-txt">
-                <h3>The beatles</h3>
-                <p>Formato en Vinilo</p>
-                <p class="precio">$58.000</p>
-                <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
-            </div>
-        </div>           
-    </div>
-    <!-- Boton para cargar más productos -->
-    <div class="btn-2" id="load-more">Cargar Mas</div>
-
-
-<br>
-<a href="{% url 'pago'%}"> <br>
-    <button class="btn btn-info">Pagar</button>
-</a>
-</main>
-<!-- FOOTER -->
-<!-- Remove the container if you want to extend the Footer to full width. -->
+                </li>
+                <li><a href="{% url 'contactanos' %}">Contáctanos</a></li>
+                <li><a href="{% url 'registro' %}">Regístrate</a></li>
+                <li><a href="{% url 'signup' %}">Crea tu cuenta</a></li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'crud' %}">{{ user.username }}</a>
+                        <ul>
+                            <form id="logoutForm" action="{% url 'logout' %}" method="post" class="navbar-right">
+                                {% csrf_token %}
+                                <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+                            </form>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
 <style>
-			
-    .footer{
-        padding: 50px 0;
-        background-color: #000000;
-        color: white;
-    }
-    
-    .footer-content{
+
+    .carrito-row {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        width: 100%;
     }
-
+  
+    .carrito-precio {
+        font-weight: bold;
+    }
+    
+  
+    
+    .carrito-pagar {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .btn-info {
+        background-color: red;
+        color: white;
+        border: none;
+        margin-left: 50%;
+        margin-right: 50%;
+        padding: 10px 20px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .btn-info:hover {
+        background-color: red;
+    }
+    
+    @media (max-width: 768px) {
+        .carrito-items {
+            flex-direction: column;
+        }
+    
+        .carrito-item {
+            width: 100%;
+        }
+    }
+    
+    
 </style>
+    <section id="banner">
+        <header>
+            <h2>Nuestros Productos</h2>
+            <p>Disponibles en todos los formatos.</p>
+        </header>
+    </section>
+
+    <div class="carrito">
+        <div class="carrito-items">
+            <table class="carrito-items">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <!-- Los elementos del carrito se agregan dinámicamente desde JavaScript -->
+          
+        </div>
+
+        <div class="carrito-total">
+            <strong>Total: </strong><span class="total-precio">$0</span>
+        </div>
+        <br>
+        <a href="#" onclick="redirigirAPago()">
+            <button class="btn btn-info">Pagar</button>
+        </a>
+
+        <br><br>
+    </div>
+
+    <header>
+        <div class="header-content container">
+          <div class="header-txt">
+    
+       </header>
+
+    <main class="products container">
+        <div class="box-container" id="lista-1">
+            <div class="box" >
+                <img src="{% static 'imagenbanda/kendrickl.jpeg' %}" alt="">
+                <div class="product-txt">
+                    <h3>Kendrick Lamar</h3>
+                    <p>Formato en vinilo</p>
+                    <p class="precio">43000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'imagenbanda/chancho.jpeg' %}" alt="">
+                <div class="product-txt">
+                    <h3>Chancho en Piedra</h3>
+                    <p>Formato en Vinilo</p>
+                    <p class="precio">53000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'imagenbanda/specials.jpg' %}" alt="">
+                <div class="product-txt">
+                    <h3>The Specials</h3>
+                    <p>Formato en CD</p>
+                    <p class="precio">33000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'imagenbanda/bloquedepre.png' %}" alt="">
+                <div class="product-txt">
+                    <h3>Bloque Depresivo</h3>
+                    <p>Formato en Cassete</p>
+                    <p class="precio">77000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box" style="display: none;">
+                <img src="{% static 'imagenbanda/bowie.png' %}" alt="">
+                <div class="product-txt">
+                    <h3>David Bowie</h3>
+                    <p>Formato en Cassette</p>
+                    <p class="precio">22000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'imagenbanda/tool1.jpeg' %}" alt="">
+                <div class="product-txt">
+                    <h3>Tool</h3>
+                    <p>Formato en Cassette</p>
+                    <p class="precio">30000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'imagenbanda/flori.jpeg' %}" alt="">
+                <div class="product-txt">
+                    <h3>La Floripondio</h3>
+                    <p>Formato en CD</p>
+                    <p class="precio">13000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="2">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'imagenbanda/artic.jpeg' %}" alt="">
+                <div class="product-txt">
+                    <h3>Arctic Monkeys</h3>
+                    <p>Formato en Cassette</p>
+                    <p class="precio">18000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'imagenbanda/post.jpeg' %}" alt="">
+                <div class="product-txt">
+                    <h3>Post Malone</h3>
+                    <p>Formato en Cassette</p>
+                    <p class="precio">15000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'imagenbanda/metallica.jpeg' %}" alt="">
+                <div class="product-txt">
+                    <h3>Metallica</h3>
+                    <p>Calidad premium</p>
+                    <p class="precio">45000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="1">Agregar al carrito</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'imagenbanda/theb.jpeg' %}" alt="">
+                <div class="product-txt">
+                    <h3>The Beatles</h3>
+                    <p>Formato en Vinilo</p>
+                    <p class="precio">58000</p>
+                    <a href="#" class="agregar-carrito btn-3" data-id="3">Agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+        <!-- Botón para cargar más productos -->
+        <div class="btn-2" id="load-more">Cargar Más</div>
+        <br>
+    </main>
+
+    <br><br>
 
 <!-- Footer -->
 <footer id="footer-inicio" class="footer">
@@ -298,12 +271,25 @@
     </div>
 
 </footer>
-
-		<!-- Scripts -->
         
-        <script src="static/js/script.js"></script>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <style>
+<script src="static/js/load.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+			
+        .footer{
+            padding: 50px 0;
+            background-color: #000000;
+            color: white;
+        }
+        
+        .footer-content{
+            display: flex;
+            justify-content: space-between;
+        }
+    
+    </style>
+ <style>
             .info-txt{
                 width: 50%;
             }
@@ -480,7 +466,6 @@
                 color: #fb5959;
             }
         </style>
-        
-	</body>
-    </html>
-    
+
+</body>
+</html>

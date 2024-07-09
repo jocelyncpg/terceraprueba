@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <div id="carrito">
+        <table id="lista-carrito">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+        <div>
+            <span>Total: $<span id="total">0</span></span>
+        </div>
+        <button id="pagar">Pagar</button>
+    </div>
+
+    <div id="lista-1">
+        <!-- Ejemplo de producto -->
+        <div class="box">
+            <img src="ruta_imagen.jpg" alt="">
+            <h3>Producto 1</h3>
+            <span class="precio">$10.00</span>
+            <a href="comprar" class="agregar-carrito" data-id="1">Agregar al carrito</a>
+        </div>
+        <!-- Más productos aquí -->
+    </div>
+
+
+        <div id="lista-1">
+            <div class="box">
+                <img src="static/imagenbanda/kendrickl.jpeg" alt="">
+                    <h3>Kendrick Lamar</h3>
+                    <p>Formato en vinilo</p>
+                    <span class="precio">$43.000</span>
+                    <a href="comprar" class="agregar-carrito" data-id="1">Agregar al carrito</a>
+            </div>
+        </div>
+         
+    
+    <script src="scipt.js"></script>
+</body>
+</html>
